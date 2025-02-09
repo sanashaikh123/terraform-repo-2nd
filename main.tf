@@ -1,8 +1,8 @@
-resource "aws_key_pair" "pub_kp" {
+/* resource "aws_key_pair" "pub_kp" {
   key_name   = "pub_kp"
   public_key = file("${path.module}/id_rsa.pub")
 
-}
+} */
 resource "aws_security_group" "tf_sg" {
   name        = "tf_sg"
   description = "sg created by terraform"
@@ -31,7 +31,7 @@ resource "aws_security_group" "tf_sg" {
 resource "aws_instance" "web" {
   ami                    = var.ami
   instance_type          = var.instance_type
-  key_name               = aws_key_pair.pub_kp.key_name
+  # key_name               = aws_key_pair.pub_kp.key_name
   vpc_security_group_ids = [aws_security_group.tf_sg.id]
   tags = {
     Name = "tf_instance"
