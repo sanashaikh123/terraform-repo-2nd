@@ -29,7 +29,7 @@ resource "aws_security_group" "tf_sg" {
 }
 
 resource "aws_s3_bucket" "S3_bucket" {
-  bucket = "my-tf-test-bucket"
+  bucket = "my-tf-test-bucket21025"
 
   tags = {
     Name        = "My bucket"
