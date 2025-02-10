@@ -28,26 +28,47 @@ resource "aws_security_group" "tf_sg" {
 
 }
 
-resource "aws_instance" "web" {
-  ami                    = var.ami
-  instance_type          = var.instance_type
-  # key_name               = aws_key_pair.pub_kp.key_name
-  vpc_security_group_ids = [aws_security_group.tf_sg.id]
-  tags = {
-    Name = "tf_instance"
-  }
+resource "aws_s3_bucket" "S3_bucket" {
+  bucket = "my-tf-test-bucket"
 
+  tags = {
+    Name        = "My bucket"
+    Environment = "Dev"
+  }
+}
+resource "aws_iam_role" "test_role" {
+  name = "test_role"
+
+  # Terraform's "jsonencode" function converts a
+  # Terraform expression result to valid JSON syntax.
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = "sts:AssumeRole"
+        Effect = "Allow"
+        Sid    = ""
+        Principal = {
+          Service = "ec2.amazonaws.com"
+        }
+      },
+    ]
+  })
+
+  tags = {
+    tag-key = "tag-value"
+  }
 }
 
-output "ami_id" {
-  value = aws_instance.web.ami
+output "s3_arn" {
+  value = aws_s3_bucket.S3_bucket.arn
 
 }
 output "sg_id" {
   value = aws_security_group.tf_sg.id
 
 }
-output "ec2-ip" {
-  value = aws_instance.web.public_ip
+output "role_arn" {
+  value = aws_iam_role.test_role.arn
 
 }
