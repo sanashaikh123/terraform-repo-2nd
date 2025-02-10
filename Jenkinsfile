@@ -42,6 +42,15 @@ pipeline {
                 }
             }
         }
+        stage('Terraform Destroy') {
+            steps {
+                //input message: "Do you want to apply the Terraform changes?", ok: "Apply"
+                Destroy(){
+                
+                    sh 'terraform destroy -auto-approve'
+                }
+            }
+        }
     }
 
     post {
