@@ -38,7 +38,7 @@ pipeline {
             steps {
                 input message: "Do you want to apply the Terraform changes?", ok: "Apply"
                 script {
-                    sh 'terraform apply -auto-approve tfplan'
+                    sh 'terraform apply --auto-approve tfplan'
                 }
             }
         }
