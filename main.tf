@@ -4,7 +4,7 @@
 
 } */
 resource "aws_security_group" "tf_sg" {
-  name        = "tf_sg"
+  name        = "tf_sg1"
   description = "sg created by terraform"
   dynamic "ingress" {
     for_each = [22, 80, 443]
