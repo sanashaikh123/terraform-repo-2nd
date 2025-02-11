@@ -29,7 +29,7 @@ resource "aws_security_group" "tf_sg" {
 }
 
 resource "aws_s3_bucket" "S3_bucket" {
-  bucket = "my-tf-test-bucket21025"
+  bucket = var.bucket_name
 
   tags = {
     Name        = "My bucket"
@@ -37,7 +37,7 @@ resource "aws_s3_bucket" "S3_bucket" {
   }
 }
 resource "aws_iam_role" "test_role" {
-  name = "test_role"
+  name = var.role_name
 
   # Terraform's "jsonencode" function converts a
   # Terraform expression result to valid JSON syntax.
