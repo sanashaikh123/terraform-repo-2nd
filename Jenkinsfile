@@ -18,20 +18,21 @@ pipeline {
             steps {
                 script {
                     try {
-                // Attempt to checkout the specified branch
-                git branch: "${params.BRANCH_NAME}",
-                    url: 'https://github.com/sanashaikh123/terraform-repo-2nd.git',
+
+                        // Attempt to checkout the specified branch
+                        git branch: "${params.BRANCH_NAME}",
+                        url: 'https://github.com/sanashaikh123/terraform-repo-2nd.git',
                     
-            } catch (Exception e) {
-                // Handle the error, e.g., notify the user or fallback to a default branch
-                echo "Branch '${params.BRANCH_NAME}' not found. Please verify the branch name."
-                currentBuild.result = 'FAILURE'
-                error("Stopping pipeline due to invalid branch.")
-            }
-        }
+                    }catch (Exception e) {
+                        // Handle the error, e.g., notify the user or fallback to a default branch
+                        echo "Branch '${params.BRANCH_NAME}' not found. Please verify the branch name."
+                        currentBuild.result = 'FAILURE'
+                        error("Stopping pipeline due to invalid branch.")
+                    }
                 }
             }
         }
+    }
 
         
 
