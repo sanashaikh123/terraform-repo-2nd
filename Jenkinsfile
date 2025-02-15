@@ -49,7 +49,7 @@ pipeline {
                     }else if (params.Actions == 'Apply'){
                         sh 'terraform apply -auto-approve tfplan'
                     }else if (params.Actions == 'Apply'){
-                        sh 'terraform destroy -auto-approve'
+                        sh 'terraform destroy -auto-approve tfplan'
                     }
 
                     
