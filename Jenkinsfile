@@ -21,7 +21,7 @@ pipeline {
 
                         // Attempt to checkout the specified branch
                         git branch: "${params.BRANCH_NAME}",
-                        url: 'https://github.com/sanashaikh123/terraform-repo-2nd.git',
+                        url: 'https://github.com/sanashaikh123/terraform-repo-2nd.git'
                     
                     }catch (Exception e) {
                         // Handle the error, e.g., notify the user or fallback to a default branch
@@ -65,7 +65,7 @@ pipeline {
 
     post {
         always {
-            echo "Pipeline execution completed"
+            echo "Pipeline execution completed",
             archiveArtifacts artifacts: 'tfplan'
         }
         success {
