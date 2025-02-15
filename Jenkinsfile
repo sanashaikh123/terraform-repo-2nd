@@ -4,7 +4,7 @@ pipeline {
     environment {
         AWS_ACCESS_KEY_ID     = credentials('AccessKey')   // Jenkins credential ID
         AWS_SECRET_ACCESS_KEY = credentials('SecretKey')   // Jenkins credential ID
-        PATH = "/opt/homebrew/bin/:$PATH"
+        //PATH = "/opt/homebrew/bin/:$PATH"
         
     }
 
