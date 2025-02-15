@@ -32,10 +32,7 @@ pipeline {
                 }
             }
         }
-    }
-
-        
-
+    
         stage('Terraform Init') {
             steps {
                 script {
