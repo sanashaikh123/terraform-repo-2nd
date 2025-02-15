@@ -2,7 +2,7 @@ terraform {
   backend "s3" {
     bucket         = "xray-conf"
     key            = "statefile.tfstate"
-    region         = "us-east-1"
+    region         = "us-east-2"
     use_lockfile   = true
     encrypt        = true
   }
