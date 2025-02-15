@@ -55,9 +55,7 @@ pipeline {
                     
                 }
             }
-        }
-
-        
+        }   
     }
 
     post {
@@ -72,4 +70,4 @@ pipeline {
             echo "Pipeline failed!"
         }
     }
-
+}
