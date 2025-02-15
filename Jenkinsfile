@@ -1,7 +1,7 @@
 pipeline {
     agent any
     parameters {
-        string(name: 'BRANCH_NAME',defaultValue:'parametarized-pipeline')
+        string(name: 'BRANCH_NAME',defaultValue:'parameterized-pipeline ')
         choice(name: 'Actions', choices: ['Plan', 'Apply','Destroy'], description: 'Terraform Actions')
         
     }
